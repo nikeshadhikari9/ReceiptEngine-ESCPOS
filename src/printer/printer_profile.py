@@ -7,7 +7,7 @@ reach the layout engine, the resolver or the backend.
 
 Profiles can be built in code, or loaded from a JSON file:
 
-    profile = load_printer_profile("printer/espon_tm_t20iv.json")
+    profile = load_printer_profile("printer/epson_tm_t20iv.json")
 """
 
 import codecs

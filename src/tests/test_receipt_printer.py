@@ -13,6 +13,7 @@ from printer.printer_profile import (
     PrinterEncoding,
     PrinterLayout,
 )
+from errors import PrinterMismatchError
 
 from compiler.render_plan import RenderPlan
 
@@ -125,7 +126,7 @@ class TestReceiptPrinter(unittest.TestCase):
 
         self.render_plan.printer_id = "another_printer"
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(PrinterMismatchError):
             self.printer.print_receipt(self.receipt)
 
         self.capability_resolver.resolve.assert_not_called()

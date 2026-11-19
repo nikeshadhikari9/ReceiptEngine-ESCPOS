@@ -73,10 +73,10 @@ class CapabilityResolver:
 
                 resolved_operations.append(resolved_qr)
 
-                if resolved_qr.method == "raster":
-                    warnings.append(
-                        "QR code will be printed using raster fallback."
-                    )
+                raster_warning =  "QR code will be printed using raster fallback."
+
+                if resolved_qr.method == "raster" and raster_warning not in warnings:
+                    warnings.append(raster_warning)
 
             # ----------------------------------
             # CUT RESOLUTION

@@ -14,7 +14,6 @@ from errors import BackendError
 from compiler.text_encoder import TextEncoder
 
 from compiler.render_plan import (
-    RenderPlan,
     TextOperation,
     ColumnsOperation,
     SeparatorOperation,
@@ -235,6 +234,9 @@ class _RenderJob:
 
     def _columns(self, operation: ColumnsOperation):
 
+        # Column rows are always printed in the default style and alignment.
+        self._reset_text_style()
+
         for line in operation.lines:
 
             parts = []
@@ -274,7 +276,6 @@ class _RenderJob:
             combined_text = "".join(parts)
 
             self._alignment("left")
-            self._reset_text_style()
 
             self._write_text(combined_text)
 

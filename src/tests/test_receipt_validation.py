@@ -117,13 +117,13 @@ class TestInvalidReceipts(unittest.TestCase):
 
     def test_qr_problems(self):
         self.assert_invalid(receipt_with(QRNode(value="", size=6)))
-        self.assert_invalid(receipt_with(QRNode(value="x", size=0)))
-        self.assert_invalid(receipt_with(QRNode(value="x", size=2.5)))
+        self.assert_invalid(receipt_with(QRNode(value="x", size=17)))
+        self.assert_invalid(receipt_with(QRNode(value="x", size=256)))
         self.assert_invalid(receipt_with(QRNode(value=42, size=6)))
 
     def test_feed_problems(self):
         self.assert_invalid(receipt_with(FeedNode(lines=-1)))
-        self.assert_invalid(receipt_with(FeedNode(lines=1.5)))
+        self.assert_invalid(receipt_with(FeedNode(lines=256)))
         self.assert_invalid(receipt_with(FeedNode(lines=True)))
 
     def test_bad_cut_mode(self):

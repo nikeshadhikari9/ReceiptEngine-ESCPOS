@@ -47,3 +47,6 @@ class TextEncodingError(BackendError):
 
 class TransportError(ReceiptEngineError):
     """Communication with the printer failed."""
+
+class PrinterMismatchError(ReceiptEngineError):
+    """The render plan targets a different printer than the configured one."""

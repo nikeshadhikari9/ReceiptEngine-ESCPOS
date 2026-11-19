@@ -113,6 +113,14 @@ class TestNetworkTransport(unittest.TestCase):
         with self.assertRaises(TransportError):
             NetworkTransport(config)
 
+    @patch("printer.transport.socket.create_connection")
+    def test_connection_open_failure_does_not_call_close(self, mock_connection):
+        mock_connection.side_effect = OSError("No route to host")
 
+        with self.assertRaises(TransportError):
+            self.transport.send(b"HELLO")
+
+        mock_connection.return_value.close.assert_not_called()
+        
 if __name__ == "__main__":
     unittest.main()

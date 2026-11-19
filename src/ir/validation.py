@@ -158,19 +158,18 @@ def _validate_node(index, node):
     elif isinstance(node, QRNode):
         if not isinstance(node.value, str) or node.value == "":
             _fail(index, node, "value must be a non-empty string.")
-
-        if not _is_int(node.size) or node.size < 1:
+        if not _is_int(node.size) or not (1 <= node.size <= 16):
             _fail(
                 index, node,
-                f"size must be a whole number of at least 1, "
+                f"size must be a whole number between 1 and 16, "
                 f"got {node.size!r}."
             )
 
     elif isinstance(node, FeedNode):
-        if not _is_int(node.lines) or node.lines < 0:
+        if not _is_int(node.lines) or not (0 <= node.lines <= 255):
             _fail(
                 index, node,
-                f"lines must be a whole number of at least 0, "
+                f"lines must be a whole number between 0 and 255, "
                 f"got {node.lines!r}."
             )
 

@@ -55,6 +55,11 @@ class TextEncoder:
         if not self.pages:
             return self._encode_ascii_only(text)
 
+        # The caller may only have told us which page the printer is on.
+        # If that page is not one of the pages this profile declares,
+        # treat it as "no page selected" and let preference order decide.
+        if current_page is not None and current_page not in self.pages:
+            current_page = None
         runs = []
         page = current_page
         pending = bytearray()

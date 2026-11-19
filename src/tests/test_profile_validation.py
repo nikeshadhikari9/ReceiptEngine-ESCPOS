@@ -17,7 +17,7 @@ from printer.printer_profile import (
 
 # The JSON file that ships with the project.
 PROFILE_JSON = os.path.join(
-    os.path.dirname(__file__), "..", "printer", "espon_tm_t20iv.json"
+    os.path.dirname(__file__), "..", "printer", "epson_tm_t20iv.json"
 )
 
 

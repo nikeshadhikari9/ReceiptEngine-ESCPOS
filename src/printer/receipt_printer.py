@@ -6,6 +6,7 @@ from printer.printer_profile import PrinterProfile
 from compiler.layout_engine import LayoutEngine
 from compiler.capability_resolver import CapabilityResolver
 from compiler.escpos_backend import ESCPosBackend
+from errors import PrinterMismatchError
 
 
 @dataclass
@@ -58,7 +59,7 @@ class ReceiptPrinter:
 
         # Ensure the plan targets the configured printer.
         if render_plan.printer_id != self.printer_profile.printer_id:
-            raise ValueError(
+            raise PrinterMismatchError(
                 "Render plan printer ID does not match "
                 "the configured printer profile."
             )

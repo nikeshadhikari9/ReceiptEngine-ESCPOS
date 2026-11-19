@@ -367,6 +367,12 @@ class LayoutEngine:
             - sum(allocated_widths)
         )
 
+        
+        # Each floor() loses less than one column, so the total loss is
+        # smaller than the number of columns. If this ever fails, the
+        # rounding strategy above has changed and needs another look.
+        assert 0 <= remaining_width < len(allocated_widths)
+        
         # Distribute remaining columns to the columns
         # with the largest fractional remainders
         remainders = [

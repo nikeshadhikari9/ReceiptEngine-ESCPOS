@@ -20,6 +20,8 @@ class TextStyle:
 
 @dataclass
 class ReceiptNode:
+    # Free-form label the caller can attach to a node for its own
+    # bookkeeping. The engine validates the type but never reads it.
     section: Optional[str] = None
 
 
@@ -40,6 +42,7 @@ class TextNode(ReceiptNode):
 @dataclass
 class ReceiptColumn:
     value: str
+    # percentage of the line; values don't have to add up to 100
     width_percent: float
     alignment: Literal["left", "center", "right"] = "left"
 
