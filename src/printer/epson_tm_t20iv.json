@@ -6,8 +6,8 @@
     },
     "media": {
         "paper_width_mm": 80,
-        "printable_width_dots": 576,
-        "character_columns": 48
+        "printable_width_dots": 512,
+        "character_columns": 42
     },
     "capabilities": {
         "qr_code": true,

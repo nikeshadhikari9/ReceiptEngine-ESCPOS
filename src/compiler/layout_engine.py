@@ -372,7 +372,6 @@ class LayoutEngine:
         # smaller than the number of columns. If this ever fails, the
         # rounding strategy above has changed and needs another look.
         assert 0 <= remaining_width < len(allocated_widths)
-        
         # Distribute remaining columns to the columns
         # with the largest fractional remainders
         remainders = [
@@ -534,6 +533,10 @@ class LayoutEngine:
                 result.append("")
                 continue
 
+            # Whitespace between words is collapsed to a single space
+            # (paragraph.split() with no argument). For receipts this is
+            # the desired behavior; note that leading/trailing spaces and
+            # runs of spaces inside the value are not preserved.
             words = paragraph.split()
 
             current_line = ""
