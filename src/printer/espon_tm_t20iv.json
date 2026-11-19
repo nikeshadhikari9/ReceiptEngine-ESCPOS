@@ -1,0 +1,51 @@
+{
+    "printer_id": "printer_001",
+    "identification": {
+        "manufacturer": "EPSON",
+        "model": "TM-T20IV"
+    },
+    "media": {
+        "paper_width_mm": 80,
+        "printable_width_dots": 576,
+        "character_columns": 48
+    },
+    "capabilities": {
+        "qr_code": true,
+        "barcode": true,
+        "raster": true,
+        "cutting": true
+    },
+    "encoding": {
+        "code_pages": [
+            {
+                "name": "PC437",
+                "codec": "cp437",
+                "page_id": 0
+            },
+            {
+                "name": "PC850",
+                "codec": "cp850",
+                "page_id": 2
+            },
+            {
+                "name": "PC858",
+                "codec": "cp858",
+                "page_id": 19
+            },
+            {
+                "name": "WPC1252",
+                "codec": "cp1252",
+                "page_id": 16
+            }
+        ],
+        "unicode_raster_fallback": false
+    },
+    "supported_transports": [
+        "USB",
+        "serial"
+    ],
+    "layout": {
+        "left_margin_dots": 0,
+        "right_margin_dots": 0
+    }
+}
